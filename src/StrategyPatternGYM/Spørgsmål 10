@@ -1,0 +1,35 @@
+Konceptuelle spørgsmål:
+
+Hvad er Strategy pattern og hvad er formålet med det?
+- Man skal kunne ændre behavior under runtime, det gør det muligt at skabe et mere modulært program og ændre objekters behavior ved at give dem en abstract klasse eller et interface.
+Hvad er forskellen på Strategy pattern og bare at bruge if/else i train()?
+- Det er meget nemmere at udvide et strategy pattern, skaber minder redundant kode, og gør koden mere læselig, man kan direkte indskrive unik behavior på hver klasse i stedet for at samle det hele i et stort if else statment.
+Hvilke SOLID-principper følger Strategy pattern — og hvilke?
+S — Single Responsibility: hver klasse har ét ansvar. CardioProgram beregner kun cardio-kalorier.
+O — Open/Closed: du kan tilføje SwimmingProgram uden at røre eksisterende kode.
+L — Liskov Substitution: alle programmer kan erstatte TrainingProgram uden at programmet går i stykker.
+D — Dependency Inversion: FitnessCenter afhænger af abstraktionen TrainingProgram, ikke af konkrete klasser.
+Hvornår ville du ikke bruge Strategy pattern?
+Du ville ikke bruge Strategy hvis der kun er én algoritme der aldrig ændres — så er det unødvendig kompleksitet. Eller hvis antallet af strategier er meget lille og aldrig udvides — så er en simpel if/else mere læselig.
+
+Kodespecifikke spørgsmål:
+
+5. Hvorfor er TrainingProgram et interface og ikke en abstrakt klasse?
+Det er fordi java ikke understøtter mulitibale inheiritance, og jeg har ikke brug for at arve nogen flet attributer men bare en metode.
+
+6. Hvad sker der hvis man kalder train() uden at have kaldt setProgram() først?
+det kaster en null exeption men dette har jeg lige ændret.
+
+7. Hvordan ville du tilføje et nyt program — fx SwimmingProgram på 7 kcal/min — uden at ændre eksisterende kode?
+Opret SwimmingProgram implements TrainingProgram og implementer beregnKalorier() der returnerer 7 * minutter. Ingen eksisterende kode røres — det er præcis pointen med Open/Closed Principle.
+
+8. Hvorfor gemmer vi kalorier og træningstid i to separate lister i stedet for én?
+printSummary() skal bruge dem separat — total tid og total kcal beregnes uafhængigt. En wrapper-klasse ville være den rene løsning men to lister er den hurtige.
+
+Sammenlignende spørgsmål:
+
+9. Hvad er forskellen på Strategy og Observer pattern?
+stragtegy is more about a object behavior and Observer pattern is about notifying object when changes or things has happend through a push instead of pull
+
+10. Strategy pattern siges at gå fra arv til komposition — hvad betyder det?
+et Princip OO programmering er at favoritere composition over arv, dette er pga, "Has a" er mere fleksibelt end "is a" i mange situationer.

@@ -1,0 +1,28 @@
+Konceptuelle:
+
+Hvorfor er det en fordel at Department og Employee deler samme type OrgComponent?
+- Du kan benytte polymorfisme til at danne forskellige behaviors for dem, samt man behøver ikke vide om noget er en leaf eller en branch det finder pcen selv ud af. Dette skaber simplicitet.
+Head First siger "clients treat composites and leaves uniformly" — hvad betyder det konkret i din kode?
+- At man ikke behøver at gå op i om noget er leaf eller en brach og man bare kan lave en leaf til en brach efter behov, dette skaber et simpelt men effektivt træstruktur.
+Hvornår ville Composite pattern være et dårligt valg?
+- Composite er et dårligt valg når komponenterne er for forskellige til at dele en fælles abstraktion, eller når hierarkiet altid er fladt — fx en simpel liste af ensartede objekter.
+
+Design:
+
+Hvad er forskellen på at bruge abstrakt klasse vs interface som OrgComponent — hvilken valgte du og hvorfor?
+- Der er forskel på valget mellem abstrakte klasser og interfaces, jeg valgte en abstrakt klasse bare fordi det havde jeg ikke prøvet før men normalt ville jeg brug et interface fordi det understøtter multiable interfaces, og ikke blokere arv da der kun er singulær arv i java. en anden grund kunne være vis det skulle laves nogen felt attributter på OrgComponent.
+Skal add() ligge i OrgComponent eller kun i Department — hvad er fordele og ulemper ved begge?
+-Jeg har valgt at ligge det i Department kun, men man kunne også ligge den i ORGCompent også bare gøre at den ikke gjorde det store i Leafen.
+-add() i OrgComponent — transparent: klienten behøver ikke kende typen, men det giver ingen mening at kalde add() på en Employee.
+-add() kun i Department — sikkert: giver kun mening der, men klienten skal kende typen for at kalde den.
+Udvidelse:
+
+Hvordan ville du tilføje en remove() metode?
+-remove() giver ingen mening på Employee — en leaf har ingen børn at fjerne. Den hører kun hjemme i Department:
+Hvad sker der hvis du tilføjer en Department til sig selv — og hvordan forhindrer du det?
+- Dette ville skabe en uendelig løkke derfor skal der implementeres en "safe guard"
+
+public void add(OrgComponent orgComponent) {
+    if (orgComponent == this) throw new IllegalArgumentException("Kan ikke tilføje til sig selv!");
+    orgComponents.add(orgComponent);
+}
