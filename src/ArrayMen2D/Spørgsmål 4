@@ -1,0 +1,9 @@
+1. Hvordan tilgår du element på række 2, kolonne 3?
+- du kalder bare seats[2][3]
+2. Hvad er forskellen på seats[i][j] og seats[j][i]?
+- seats[i][j] — i er række, j er kolonne. Det er den naturlige måde.
+  seats[j][i] — du bytter om — j bliver behandlet som række og i som kolonne. Det giver forkert output og kan give ArrayIndexOutOfBoundsException hvis arrayet ikke er kvadratisk
+3. Hvad er Big O for print()?
+- O(n^2) man kører et loop i et loop
+4. Hvorfor bruger vi boolean[][] og ikke int[][]?
+- fordi man kun har 2 stadier optaget eller ledig. boolean er en mindre endhed og derfor mere optimal

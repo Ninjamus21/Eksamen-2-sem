@@ -1,0 +1,53 @@
+Konceptuelle:
+
+1. Hvad er en LinkedList og hvordan adskiller den sig fra en array?
+- en linked list er bygget op af en node struktur som kun ved hvad data den selv indeholder også har en reference til næste node. Et array er en fuld samling af tal som ligger sammen i en bunke.
+2. Hvad er en Node og hvad indeholder den?
+- en node indeholder data for elementet det holder på en en reference til næste node.
+3. Hvad er head og hvad sker der hvis head er null?
+hvis head == null vil det sige at listen er tom
+
+
+Big O:
+
+4. Hvad er Big O for add() i din implementation og hvorfor?
+- hvis man ville insætte et element i en linked list er O(n) fordi man skal gå igennem hele listen hvis man vil sætte det bagerest. hvis man vil sætte det foreste element er det O(1).
+
+5. Hvad er Big O for get(index) i en LinkedList vs ArrayList?
+- i en linked list er det O(n) fordi man skal følge kæden for n elementer, hvor imode et arraylist er indexeret hvilket betyder at O(1) fordi man bare skal vælge hvilket index man gerne vil finde.
+
+6. Hvornår ville du vælge LinkedList over ArrayList?
+- jeg vil bruge en linked liste hvis man skulle indsætte mange elementer men ikke hente dem hele tiden.
+
+Rekursion:
+
+7. Forklar basecase og rekursivt kald i din sum() metode
+- når vi når enden af listen altså hvor head = null ved vi at værdien er 0 og derfor kan vi påbegynde at addere hver node sammen til en sum.
+
+8. Forklar trin for trin hvad der sker i reverse() når listen er 10 -> 20 -> 30
+- reverseHelper(10)
+    reverseHelper(20)
+      reverseHelper(30)
+        30.next == null → BASECASE → returner 30 (ny head)
+      20.next.next = 20  →  30 -> 20
+      20.next = null     →  30 -> 20 -> null
+      returner 30
+    10.next.next = 10  →  30 -> 20 -> 10
+    10.next = null     →  30 -> 20 -> 10 -> null
+    returner 30
+
+  head = 30 ✅
+  Nøglepointe: node.next.next = node vender pilen om. node.next = null fjerner den gamle pil så der ikke opstår en cirkel.
+
+9. Hvad er forskellen på at løse sum() iterativt vs rekursivt?
+
+Iterativt — du bruger en løkke og en total-variabel der akkumuleres.
+Rekursivt — call stacken fungerer som din "hukommelse". Du behøver ingen ekstern variabel fordi hvert kald husker sin egen værdi indtil basecasen nås og kaldene returnerer.
+
+Datastruktur:
+
+10. Hvad er en dobbelt-linket liste og hvornår er den bedre end en enkelt-linket liste?
+- når man vil tilføje elementer i begge ende af listen. deque
+
+11. Hvad er forskellen på en LinkedList og en Stack?
+- en stack arbejder efter princippet LIFO hvor i mod en linked liste arbejder med noder, du kan godt lave en stack med en linkedlist struktur, der push pop og peek noder fra linkedlisten.

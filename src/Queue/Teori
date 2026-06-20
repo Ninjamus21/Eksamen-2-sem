@@ -1,0 +1,3 @@
+Forskellen på ArrayList og LinkedList implementation:
+ArrayListLinkedListenqueueadd() — O(1)tail.next = newNode — O(1)dequeueremove(0) — O(n) — skal flytte allehead = head.next — O(1)peekget(0) — O(1)head.data — O(1)
+LinkedList er faktisk bedre til Queue fordi dequeue() er O(1) i stedet for O(n) — du behøver ikke flytte alle elementer, bare flytte head én plads frem.

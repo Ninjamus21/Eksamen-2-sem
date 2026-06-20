@@ -1,0 +1,24 @@
+Big O for search() i et balanceret træ:
+O(log n) — fordi du halverer søgeområdet ved hvert trin. Præcis som binær søgning. Ved hvert node beslutter du venstre eller højre — så med 7 noder behøver du max 3 sammenligninger.
+Ubalanceret træ i værste fald: O(n) — hvis alle elementer indsættes i sorteret rækkefølge bliver træet en lige linje.
+
+Inorder vs Preorder vs Postorder:
+        50
+       /  \
+      30   70
+     / \
+    20  40
+Inorder — venstre, rod, højre → 20 30 40 50 70
+
+Giver altid sorteret rækkefølge. Bruges til at printe BST sorteret.
+Preorder — rod, venstre, højre → 50 30 20 40 70
+
+Bruges til at kopiere eller gemme træstrukturen.
+Postorder — venstre, højre, rod → 20 40 30 70 50
+
+Bruges til at slette træet — børn slettes før forælderen.
+
+Huskeregel:
+Pre = rod først
+In = rod midt (sorteret)
+Post = rod sidst (slet)

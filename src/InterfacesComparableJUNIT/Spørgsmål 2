@@ -1,0 +1,8 @@
+Hvad er Comparable og hvad er forskellen på compareTo() returnerer negativt, 0 eller positivt?
+Det handler om hvad den anser som at være højere hvis man returnere negativt vil det betyde at sammenlignings elementet er mindre: hvis den returnere 0 vil det være det samme: og hvis den er positiv vil det være større ende sammenlignings elementet.
+Hvad er forskellen på @Test, assertEquals og assertTrue i JUnit?
+@Test — markerer metoden som en testmetode der køres af JUnit
+assertEquals(expected, actual) — fejler hvis de to værdier ikke er ens
+assertTrue(condition) — fejler hvis betingelsen er false
+assertFalse(condition) — fejler hvis betingelsen er true
+assertNotNull(object) — fejler hvis objektet er null

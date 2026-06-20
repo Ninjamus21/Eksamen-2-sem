@@ -1,0 +1,26 @@
+Huskregler og teori:
+LinkedList vs ArrayList:
+LinkedListArrayListLagerSpredte nodes i RAMSammenhængende blokadd() sidstO(n) — skal finde slutningenO(1) — bare tilføjget(i)O(n) — må følge kædenO(1) — direkte indexIndsæt midt iO(1) når du er derO(n) — skal flytte elementer
+Huskeregel: ArrayList er hurtig til at hente, LinkedList er hurtig til at indsætte.
+
+De tre rekursionsmønstre du skal kende:
+1. Akkumulering — sum, count:
+java return node.data + helper(node.next);
+2. Søgning — find element:
+javaif (node.data == target) return node;
+return helper(node.next);
+3. Transformation — reverse:
+java Node reversed = helper(node.next);
+node.next.next = node;
+node.next = null;
+return reversed;
+
+Basecase huskeregel:
+LinkedList rekursion har næsten altid samme basecase:
+java if (node == null) return 0;        // akkumulering
+if (node == null) return null;     // søgning
+if (node == null || node.next == null) return node; // reverse
+
+Node-strukturen — den ene ting der skal sidde fast:
+head → [10|→] → [20|→] → [30|→] → [40|→] → [50|null]
+Hvert kald i rekursionen er én node. Når du ser node.next tænk "resten af listen".
