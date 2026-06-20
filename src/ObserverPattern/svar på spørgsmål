@@ -1,0 +1,9 @@
+1. Hvad er forskellen på Subject og Observer i dette mønster?
+2. Hvornår ville du vælge Observer pattern frem for et direkte metodekald?
+
+Subject er avisen — den der har information og sender den ud. I dit tilfælde WeatherStation.
+Observer er abonnenten — den der modtager information når noget sker. I dit tilfælde CurrentDisplay og AverageDisplay.
+
+Din push vs. pull forklaring er til gengæld rigtig god og præcis det en eksaminator vil høre. Sæt det bare sammen korrekt:
+Subject er den der ejer data og notificerer — Observer er den der abonnerer og reagerer. Frem for at Observer aktivt spørger Subject om ny data (pull), sender Subject selv besked ud når noget ændrer sig (push). Det løskobler de to parter — Subject behøver ikke kende de konkrete display-klasser, kun at de implementerer Observer-interfacet.
+Man vælger Observer frem for direkte metodekald når én hændelse skal notificere flere modtagere, eller når antallet af modtagere kan variere i runtime — som her hvor removeObserver() fjerner CurrentDisplay undervejs.

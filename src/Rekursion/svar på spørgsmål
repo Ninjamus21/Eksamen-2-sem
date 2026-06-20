@@ -1,0 +1,11 @@
+Et eksamensklart svar på begge:
+Hvad er LIFO og hvordan afspejles det i din implementation?
+Hvad sker der i kaldsrækkefølgen når reverse() køres rekursivt — beskriv med stack-frames? *
+
+LIFO betyder at det sidst tilføjede element er det første der fjernes. I min implementation sikres dette ved at både push() og pop() opererer på index 0 i den underliggende ArrayList, så toppen af stakken altid er tilgængelig først.
+Når reverse() kaldes rekursivt sker følgende: hvert kald popper ét element og suspenderer - det vil sige elementet holdes i den lokale stack-frame mens det rekursive kald fortsætter. Først når basecasen nås (isEmpty()) begynder kaldene at returnere, og elementerne pushes til den nye stak i omvendt rækkefølge. Det første element der blev poppet (5) pushes derfor sidst, og det sidste (1) pushes først - hvilket vender stakken.
+
+3 fælles ting for datastrukturere
+* Performance
+* I/O eller Input / output
+* intern struktur

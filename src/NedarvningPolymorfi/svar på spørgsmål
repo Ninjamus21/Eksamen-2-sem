@@ -1,0 +1,10 @@
+Hvad er forskellen på abstrakt klasse og interface — hvornår vælger du hvad?
+Hvad er polymorfi og hvor ses det konkret i din løsning?
+
+En abstrakt klasse kan ikke instansieres direkte men giver subklasser fælles attributter og evt. konkrete metoder via nedarvning. Man vælger abstrakt klasse når klasserne deler tilstand og adfærd — som Material der giver title og author til både Book og AudioBook.
+Et interface definerer en kontrakt af metoder som implementerende klasser skal overholde, men indeholder ingen felter eller konstruktorer. Man vælger interface når man vil sikre en fælles adfærd på tværs af urelaterede klasser — som Observer der kan implementeres af både displays, loggers og andet.
+tommelfinger regl:
+Abstrakt klasse ved "er-en"-relation — AudioBook er en Material. De deler tilstand (title, author) og hører naturligt sammen i et hierarki.
+Interface ved "kan-en"-relation — CurrentDisplay kan opdateres, AverageDisplay kan opdateres. De er ikke beslægtede klasser, men deler en adfærd.
+
+Polymorfi ses i printAll() hvor ArrayList<Material> indeholder både Book og AudioBook, men Java kalder automatisk den rigtige toString() på hver — uden at Library behøver kende den konkrete type.

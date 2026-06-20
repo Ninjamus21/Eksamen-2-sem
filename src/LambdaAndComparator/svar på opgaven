@@ -1,0 +1,13 @@
+Et lambda-udtryk er en kort notation for en anonym klasse der implementerer et funktionelt interface. I Java bruges -> syntaksen og erstatter den verbose anonymous class-syntax. Comparator er et funktionelt interface med én metode — compare() — der definerer sorteringsorden mellem to objekter. Her sendes Comparatoren som lambda direkte til Collections.sort() så Song ikke selv behøver kende til sorteringslogikken.
+
+Lambda — næsten perfekt
+Din forklaring om funktionel programmering og fat arrow er korrekt. Den skjulte klasse du nævner kaldes en anonym klasse — det er præcis hvad lambda erstatter. Før lambda skulle man skrive:
+javaCollections.sort(songs, new Comparator<Song>() {
+    @Override
+    public int compare(Song s1, Song s2) {
+        return s1.getTitle().compareTo(s2.getTitle());
+    }
+});
+Lambda kollapser det til én linje. Det er præcis den genvej du beskriver.
+Comparator — lille korrektion
+Comparator sættes ikke på selve klassen — det er et separat objekt der definerer sorteringslogikken udefra. I denne kode laves Comparator som et lambda direkte i Collections.sort() kaldet. Det gør at Song selv forbliver ren — den ved ikke noget om hvordan den sorteres.

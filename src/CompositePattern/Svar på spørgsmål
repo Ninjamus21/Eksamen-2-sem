@@ -1,0 +1,5 @@
+Hvilken datastruktur afspejler Composite pattern?
+Hvad er fordelen ved at både File og Folder deler samme type?
+
+Composite pattern afspejler en træstruktur hvor Folder er en branch der kan indeholde både leaves (File) og andre branches (Folder). En File er altid et leaf — den har ingen børn. Træstrukturen gør det muligt at navigere hierarkiet rekursivt, som vi ser i både print() og getSize().
+Fordelen ved fælles type er at Folder kan indeholde en List<FileComponent> der rummer både filer og mapper uden at skelne mellem dem. Klienten — her FileSystemTest — behøver ikke kende den konkrete type, den kalder bare print() og getSize() på alt. Det er polymorfi i praksis.

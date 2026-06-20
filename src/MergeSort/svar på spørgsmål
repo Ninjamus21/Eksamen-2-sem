@@ -1,0 +1,3 @@
+Hvad er Big O for merge sort, lineær søgning og binær søgning?
+Hvornår er binær søgning bedre end lineær — og hvad kræver det?
+Merge sort er O(n log n) fordi arrayet deles log n gange og hvert niveau kræver n sammenligninger ved fletning. Binær søgning er O(log n) men kræver et sorteret array. Lineær søgning er O(n) og virker på usorterede arrays.
